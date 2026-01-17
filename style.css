@@ -1,46 +1,79 @@
+/* =========================================================
+   DATA LAB X — PRODUCTION STYLESHEET
+   ========================================================= */
+
 /* ===============================
-   BASE VARIABLES
+   CSS VARIABLES
    =============================== */
 
 :root {
-  --bg-dark: #020617;
+  --bg-main: #020617;
   --bg-alt: #020617;
+  --bg-card: #020617;
+
   --text-main: #e5e7eb;
   --text-muted: #94a3b8;
+
   --accent: #38bdf8;
   --accent-glow: #22d3ee;
+
+  --border-subtle: rgba(148, 163, 184, 0.15);
 }
 
 /* ===============================
-   GLOBAL RESET
+   RESET & GLOBALS
    =============================== */
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg-dark);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ===============================
-   HERO & NAV
+   HERO & NAVIGATION
    =============================== */
 
 .hero {
-  padding: 3rem 2rem 5rem;
-  background: radial-gradient(circle at top, #020617, #020617);
+  padding: 2.5rem 2rem 5rem;
+  background: radial-gradient(
+    circle at top,
+    rgba(56, 189, 248, 0.08),
+    transparent 60%
+  );
 }
 
 nav {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -48,6 +81,7 @@ nav {
   align-items: center;
   gap: 0.6rem;
   font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .logo span {
@@ -59,9 +93,19 @@ nav {
 }
 
 .nav-links a {
-  margin-left: 1.4rem;
-  text-decoration: none;
-  color: var(--text-main);
+  margin-left: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-glow);
+}
+
+.nav-cta {
+  color: var(--accent-glow);
+  font-weight: 600;
 }
 
 /* ===============================
@@ -69,13 +113,67 @@ nav {
    =============================== */
 
 .hero-content {
+  max-width: 900px;
+  margin: 4.5rem auto 0;
   text-align: center;
-  margin-top: 4rem;
 }
 
 .hero-content h2 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.highlight {
+  color: var(--accent-glow);
+}
+
+.hero-subtext {
+  margin-top: 1.6rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===============================
+   CTA BUTTONS
+   =============================== */
+
+.hero-actions {
+  margin-top: 2.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.cta {
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.cta.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+  color: #020617;
+}
+
+.cta.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.35);
+}
+
+.cta.secondary {
+  border: 2px solid var(--accent-glow);
+  color: var(--accent-glow);
+}
+
+.cta.secondary:hover {
+  background: rgba(34, 211, 238, 0.08);
 }
 
 /* ===============================
@@ -83,16 +181,29 @@ nav {
    =============================== */
 
 section {
-  padding: 4rem 2rem;
+  padding: 4.5rem 2rem;
 }
 
 section.alt {
-  background: #020617;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-h2 {
+section h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ===============================
+   TEXT CONSTRAINTS
+   =============================== */
+
+.narrow {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.05rem;
 }
 
 /* ===============================
@@ -103,26 +214,52 @@ h2 {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  gap: 1.5rem;
+  gap: 1.6rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .card {
-  background: #020617;
-  padding: 1.6rem;
-  border-radius: 8px;
-  border: 1px solid #020617;
+  background: var(--bg-card);
+  padding: 1.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+.card h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 /* ===============================
-   CTA BUTTONS
+   TRUST SECTION
    =============================== */
 
-.cta {
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
+.trust .card {
+  border-top: 3px solid var(--accent-glow);
+}
+
+/* ===============================
+   CONTACT
+   =============================== */
+
+#contact p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#contact a {
+  color: var(--accent-glow);
 }
 
 /* ===============================
@@ -130,104 +267,38 @@ h2 {
    =============================== */
 
 footer {
+  padding: 2.5rem 2rem;
   text-align: center;
-  padding: 2rem;
   color: var(--text-muted);
+  font-size: 0.9rem;
 }
-
-
-/* ===============================
-   HERO TEXT CLARITY IMPROVEMENTS
-   =============================== */
-
-/* NEW: highlights "for Complex Systems" */
-.highlight {
-  color: var(--accent-glow);
-}
-
-/* NEW: refined hero paragraph for readability */
-.hero-subtext {
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  max-width: 720px;
-  margin: 1.5rem auto 0;
-}
-
-/* ===============================
-   CTA IMPROVEMENTS
-   =============================== */
-
-/* NEW: container for multiple CTAs */
-.hero-actions {
-  margin-top: 2.8rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-/* UPDATED: base CTA remains your gradient */
-.cta.primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
-  color: #020617;
-}
-
-/* NEW: secondary CTA for exploration */
-.cta.secondary {
-  background: transparent;
-  border: 2px solid var(--accent-glow);
-  color: var(--accent-glow);
-}
-
-/* ===============================
-   NAVIGATION POLISH
-   =============================== */
-
-/* NEW: highlight Contact in nav */
-.nav-cta {
-  color: var(--accent-glow);
-  font-weight: 600;
-}
-
-/* ===============================
-   TRUST SECTION VISUAL CUE
-   =============================== */
-
-/* NEW: subtle visual differentiation */
-.trust .card {
-  border-top: 3px solid var(--accent-glow);
-}
-
-/* ===============================
-   FOOTER NAV
-   =============================== */
 
 footer nav {
   margin-bottom: 0.8rem;
 }
 
 footer nav a {
-  font-size: 0.9rem;
+  margin: 0 0.5rem;
   color: var(--text-muted);
 }
 
+footer nav a:hover {
+  color: var(--accent-glow);
+}
+
 /* ===============================
-   MOBILE IMPROVEMENTS
+   MOBILE
    =============================== */
 
 @media (max-width: 768px) {
-
-  /* Reduce hero heading size on mobile */
   .hero-content h2 {
     font-size: 2.2rem;
   }
 
-  /* Stack CTAs nicely */
   .hero-actions {
     flex-direction: column;
   }
 
-  /* Prepare for future mobile menu */
   .nav-links {
     display: none;
   }
