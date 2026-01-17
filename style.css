@@ -1,4 +1,142 @@
 /* ===============================
+   BASE VARIABLES
+   =============================== */
+
+:root {
+  --bg-dark: #020617;
+  --bg-alt: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-glow: #22d3ee;
+}
+
+/* ===============================
+   GLOBAL RESET
+   =============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* ===============================
+   HERO & NAV
+   =============================== */
+
+.hero {
+  padding: 3rem 2rem 5rem;
+  background: radial-gradient(circle at top, #020617, #020617);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.logo span {
+  color: var(--accent-glow);
+}
+
+.logo-icon {
+  height: 36px;
+}
+
+.nav-links a {
+  margin-left: 1.4rem;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+/* ===============================
+   HERO CONTENT
+   =============================== */
+
+.hero-content {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* ===============================
+   SECTIONS
+   =============================== */
+
+section {
+  padding: 4rem 2rem;
+}
+
+section.alt {
+  background: #020617;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ===============================
+   GRID & CARDS
+   =============================== */
+
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: #020617;
+  padding: 1.6rem;
+  border-radius: 8px;
+  border: 1px solid #020617;
+}
+
+/* ===============================
+   CTA BUTTONS
+   =============================== */
+
+.cta {
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+
+/* ===============================
    HERO TEXT CLARITY IMPROVEMENTS
    =============================== */
 
