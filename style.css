@@ -93,22 +93,23 @@ nav {
    max-width: 200px;
 }
 
-
+.logo-text {
+  white-space: nowrap;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main); /* DataLab stays white */
+}
 
 .logo span {
-  color: var(--accent-glow);
+  color: var(--accent-glow);  /* X stays blue */
+  display: inline-block;       /* treat as inline element but allow styling */
+  vertical-align: baseline;    /* aligns X with the text baseline */
 }
 
 .logo-icon {
   height: 72px;
 }
 
-.logo-text {
-  white-space: nowrap;
-  font-size: 1.4rem;
-  font-weight: 700;
-   color: var(--text-main);
-}
 
 .nav-links a {
   margin-left: 1.6rem;
