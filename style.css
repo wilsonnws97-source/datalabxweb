@@ -79,9 +79,16 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
   font-size: 1.4rem;
   font-weight: 700;
+}
+
+.logo a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .logo span {
@@ -90,6 +97,7 @@ nav {
 
 .logo-icon {
   height: 72px;
+   margin-bottom: 0.2rem;
 }
 
 .nav-links a {
