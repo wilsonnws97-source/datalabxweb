@@ -106,9 +106,10 @@ nav {
   vertical-align: baseline;   /* aligns perfectly with DataLab */
 }
 
+/*
 .logo span {
   color: var(--accent-glow);  
-}
+} */
 
 .logo-icon {
   height: 72px;
