@@ -94,16 +94,20 @@ nav {
 }
 
 .logo-text {
-  white-space: nowrap;
+  white-space: nowrap;      /* keeps DataLabX on one line */
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--text-main); /* DataLab stays white */
+  color: var(--text-main);  /* white for DataLab */
+}
+
+.logo-x {
+  color: var(--accent-glow); /* light blue for X */
+  display: inline-block;      
+  vertical-align: baseline;   /* aligns perfectly with DataLab */
 }
 
 .logo span {
-  color: var(--accent-glow);  /* X stays blue */
-  display: inline-block;       /* treat as inline element but allow styling */
-  vertical-align: baseline;    /* aligns X with the text baseline */
+  color: var(--accent-glow);  
 }
 
 .logo-icon {
